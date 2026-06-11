@@ -14,28 +14,31 @@
         }
 
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: #fcfcfc;
+            color: #111111;
             line-height: 1.6;
         }
 
-        /* Cores do Tema (Ajuste conforme sua identidade visual) */
+        /* Paleta de Cores baseada no Logo: Preto, Verde Limão e Branco */
         :root {
-            --cor-primaria: #0f2027; /* Azul escuro/Grafite */
-            --cor-secundaria: #203a43; /* Tom intermediário */
-            --cor-destaque: #d32f2f; /* Vermelho Automotivo para detalhes */
-            --cor-texto-claro: #ffffff;
+            --cor-fundo-escura: #111111; /* Preto predominante */
+            --cor-fundo-clara: #ffffff;
+            --cor-cinza-suve: #f4f4f4;
+            --cor-verde-logo: #99cc00; /* Verde Limão idêntico ao logo */
+            --cor-texto-escura: #111111;
+            --cor-texto-clara: #ffffff;
         }
 
         /* Cabeçalho / Navbar */
         header {
-            background-color: var(--cor-primaria);
-            color: var(--cor-texto-claro);
-            padding: 20px 5%;
+            background-color: var(--cor-fundo-escura);
+            color: var(--cor-texto-clara);
+            padding: 15px 5%;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border-bottom: 3px solid var(--cor-verde-logo);
         }
 
         .navbar {
@@ -44,119 +47,158 @@
             align-items: center;
         }
 
-        .logo h1 {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: 1px;
+        /* Área do Logo Ajustada */
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--cor-destaque);
+        .logo-img {
+            height: 65px; /* Altura ideal para não quebrar o menu */
+            width: auto;
+            display: block;
         }
 
         .menu a {
-            color: var(--cor-texto-claro);
+            color: var(--cor-texto-clara);
             text-decoration: none;
-            margin-left: 20px;
-            font-weight: 600;
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
             transition: color 0.3s;
         }
 
         .menu a:hover {
-            color: var(--cor-destaque);
+            color: var(--cor-verde-logo);
         }
 
-        /* Banner Principal (Hero) */
+        /* Banner Principal (Hero) com as listras do logo */
         .hero {
-            background: linear-gradient(rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8)), url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1200') no-repeat center center/cover;
-            height: 60vh;
+            background: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.95)), 
+                        url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1200') no-repeat center center/cover;
+            height: 55vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: var(--cor-texto-claro);
+            color: var(--cor-texto-clara);
             padding: 0 20px;
+            position: relative;
+        }
+
+        /* Detalhe de listras pretas e brancas na base do Banner (Igual ao logo) */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: repeating-linear-gradient(
+                -45deg,
+                #111,
+                #111 10px,
+                #fff 10px,
+                #fff 20px
+            );
         }
 
         .hero h2 {
-            font-size: 42px;
+            font-size: 46px;
+            font-weight: 900;
             margin-bottom: 10px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 span {
+            color: var(--cor-verde-logo);
         }
 
         .hero p {
-            font-size: 18px;
-            max-width: 600px;
-            margin-bottom: 20px;
+            font-size: 19px;
+            max-width: 650px;
+            font-weight: 300;
         }
 
         /* Seções Gerais */
         section {
-            padding: 60px 5%;
+            padding: 70px 5%;
         }
 
         .titulo-secao {
             text-align: center;
-            font-size: 28px;
+            font-size: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
             margin-bottom: 40px;
             position: relative;
-            color: var(--cor-primaria);
+            color: var(--cor-fundo-escura);
+            letter-spacing: 1px;
+        }
+
+        .titulo-secao span {
+            color: var(--cor-verde-logo);
         }
 
         .titulo-secao::after {
             content: '';
             display: block;
-            width: 50px;
+            width: 60px;
             height: 4px;
-            background-color: var(--cor-destaque);
+            background-color: var(--cor-verde-logo);
             margin: 10px auto 0 auto;
         }
 
         /* Seção Sobre Nós */
         .sobre-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .sobre-texto {
-            flex: 1;
-            min-width: 300px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .sobre-texto p {
-            margin-bottom: 15px;
-            font-size: 16px;
+            margin-bottom: 20px;
+            font-size: 17px;
+            color: #444;
         }
 
         /* Seção de Peças / Linha de Produtos */
         .pecas-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .peca-card {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
+            background-color: #ffffff;
+            padding: 35px 25px;
+            border-radius: 6px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--cor-secundaria);
-            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border-top: 5px solid var(--cor-fundo-escura);
+            transition: all 0.3s ease;
         }
 
         .peca-card:hover {
             transform: translateY(-5px);
-            border-top-color: var(--cor-destaque);
+            border-top-color: var(--cor-verde-logo);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
         .peca-card h3 {
-            margin-bottom: 10px;
-            color: var(--cor-primaria);
+            margin-bottom: 12px;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: var(--cor-fundo-escura);
+        }
+
+        .peca-card p {
+            font-size: 15px;
+            color: #666;
         }
 
         /* Seção de Contato e Dados da Empresa */
@@ -167,41 +209,58 @@
         }
 
         .dados-empresa, .canais-contato {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+            border: 1px solid #eee;
         }
 
         .info-grupo {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .info-grupo h4 {
-            color: var(--cor-secundaria);
-            margin-bottom: 5px;
-            font-size: 14px;
+            color: var(--cor-fundo-escura);
+            margin-bottom: 6px;
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .info-grupo h4::after {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--cor-verde-logo);
+            margin-left: 6px;
+            border-radius: 50%;
         }
 
         .info-grupo p {
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
+            color: #333;
         }
 
-        /* Botão do WhatsApp de destaque */
+        /* Botão do WhatsApp Integrado ao estilo */
         .btn-whatsapp {
             display: inline-block;
             background-color: #25d366;
             color: white;
-            padding: 12px 25px;
+            padding: 14px 30px;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 4px;
             font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
             margin-top: 15px;
             transition: background-color 0.3s;
             text-align: center;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
         }
 
         .btn-whatsapp:hover {
@@ -210,25 +269,32 @@
 
         /* Rodapé */
         footer {
-            background-color: var(--cor-primaria);
-            color: #bbb;
+            background-color: var(--cor-fundo-escura);
+            color: #888;
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             font-size: 14px;
-            border-top: 3px solid var(--cor-destaque);
+            border-top: 4px solid var(--cor-verde-logo);
         }
 
-        /* Responsividade para telas menores */
+        /* Responsividade */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
+            }
+            .menu {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
             }
             .menu a {
-                margin: 0 10px;
+                margin-left: 0;
+                padding: 0 10px;
             }
             .hero h2 {
-                font-size: 32px;
+                font-size: 34px;
             }
         }
     </style>
@@ -238,24 +304,24 @@
     <header>
         <div class="navbar">
             <div class="logo">
-                <h1>RSP <span>IMPORTS</span></h1>
+                <img src="Design sem nome (1).jpg" alt="RSP Imports" class="logo-img">
             </div>
             <nav class="menu">
                 <a href="#home">Início</a>
                 <a href="#sobre">Quem Somos</a>
-                <a href="#produtos">Linha de Peças</a>
+                <a href="#produtos">Produtos</a>
                 <a href="#contato">Dados e Contato</a>
             </nav>
         </div>
     </header>
 
     <div class="hero" id="home">
-        <h2>RSP Imports</h2>
+        <h2>RSP <span>IMPORTS</span></h2>
         <p>Sua distribuidora de confiança em peças automotivas importadas e nacionais. Qualidade, variedade e agilidade na entrega.</p>
     </div>
 
     <section id="sobre">
-        <h2 class="titulo-secao">Quem Somos</h2>
+        <h2 class="titulo-secao">Quem <span>Somos</span></h2>
         <div class="sobre-container">
             <div class="sobre-texto">
                 <p>A <strong>RSP Imports Distribuidora de Peças</strong> é especializada no fornecimento de componentes automotivos de alta qualidade para lojistas, oficinas e autocenters.</p>
@@ -265,8 +331,8 @@
         </div>
     </section>
 
-    <section id="produtos" style="background-color: #f0f2f5;">
-        <h2 class="titulo-secao">Nossa Linha de Produtos</h2>
+    <section id="produtos" style="background-color: var(--cor-cinza-suve);">
+        <h2 class="titulo-secao">Linha de <span>Produtos</span></h2>
         <div class="pecas-grid">
             <div class="peca-card">
                 <h3>Motor</h3>
@@ -288,11 +354,11 @@
     </section>
 
     <section id="contato">
-        <h2 class="titulo-secao">Dados e Canais de Contato</h2>
+        <h2 class="titulo-secao">Dados e <span>Contato</span></h2>
         
         <div class="contato-container">
             <div class="dados-empresa">
-                <h3 style="margin-bottom: 20px; color: var(--cor-primaria);">Dados Institucionais</h3>
+                <h3 style="margin-bottom: 25px; color: var(--cor-fundo-escura); text-transform: uppercase; font-size: 18px;">Dados Institucionais</h3>
                 
                 <div class="info-grupo">
                     <h4>Razão Social</h4>
@@ -301,7 +367,7 @@
                 
                 <div class="info-grupo">
                     <h4>CNPJ</h4>
-                    <p>40.395.596/0001-90 </p>
+                    <p>40.395.596/0001-90</p>
                 </div>
                 
                 <div class="info-grupo">
@@ -316,10 +382,10 @@
             </div>
 
             <div class="canais-contato">
-                <h3 style="margin-bottom: 20px; color: var(--cor-primaria);">Fale Conosco</h3>
+                <h3 style="margin-bottom: 25px; color: var(--cor-fundo-escura); text-transform: uppercase; font-size: 18px;">Fale Conosco</h3>
                 
                 <div class="info-grupo">
-                    <h4>Telefone Fixo</h4>
+                    <h4>Telefone / WhatsApp</h4>
                     <p>(11) 95386-4541</p>
                 </div>
                 
@@ -330,7 +396,7 @@
                 
                 <div class="info-grupo">
                     <h4>Atendimento de Vendas</h4>
-                    <p>Entre em contato direto com nossa equipe comercial via WhatsApp clicando abaixo:</p>
+                    <p style="font-weight: normal; color: #555; margin-bottom: 10px;">Entre em contato direto com nossa equipe comercial via WhatsApp clicando abaixo:</p>
                     <a href="https://wa.me/5511953864541" target="_blank" class="btn-whatsapp">
                         Chamar no WhatsApp
                     </a>
