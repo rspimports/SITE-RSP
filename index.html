@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSP Imports | Distribuidora de Peças</title>
+    <style>
+        /* Reset e Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cores do Tema (Ajuste conforme sua identidade visual) */
+        :root {
+            --cor-primaria: #0f2027; /* Azul escuro/Grafite */
+            --cor-secundaria: #203a43; /* Tom intermediário */
+            --cor-destaque: #d32f2f; /* Vermelho Automotivo para detalhes */
+            --cor-texto-claro: #ffffff;
+        }
+
+        /* Cabeçalho / Navbar */
+        header {
+            background-color: var(--cor-primaria);
+            color: var(--cor-texto-claro);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--cor-destaque);
+        }
+
+        .menu a {
+            color: var(--cor-texto-claro);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: var(--cor-destaque);
+        }
+
+        /* Banner Principal (Hero) */
+        .hero {
+            background: linear-gradient(rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.8)), url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1200') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--cor-texto-claro);
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 60px 5%;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--cor-primaria);
+        }
+
+        .titulo-secao::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: var(--cor-destaque);
+            margin: 10px auto 0 auto;
+        }
+
+        /* Seção Sobre Nós */
+        .sobre-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .sobre-texto {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .sobre-texto p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        /* Seção de Peças / Linha de Produtos */
+        .pecas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .peca-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--cor-secundaria);
+            transition: transform 0.3s;
+        }
+
+        .peca-card:hover {
+            transform: translateY(-5px);
+            border-top-color: var(--cor-destaque);
+        }
+
+        .peca-card h3 {
+            margin-bottom: 10px;
+            color: var(--cor-primaria);
+        }
+
+        /* Seção de Contato e Dados da Empresa */
+        .contato-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .dados-empresa, .canais-contato {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .info-grupo {
+            margin-bottom: 20px;
+        }
+
+        .info-grupo h4 {
+            color: var(--cor-secundaria);
+            margin-bottom: 5px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-grupo p {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Botão do WhatsApp de destaque */
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebd58;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--cor-primaria);
+            color: #bbb;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 3px solid var(--cor-destaque);
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .menu a {
+                margin: 0 10px;
+            }
+            .hero h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h1>RSP <span>IMPORTS</span></h1>
+            </div>
+            <nav class="menu">
+                <a href="#home">Início</a>
+                <a href="#sobre">Quem Somos</a>
+                <a href="#produtos">Linha de Peças</a>
+                <a href="#contato">Dados e Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero" id="home">
+        <h2>RSP Imports</h2>
+        <p>Sua distribuidora de confiança em peças automotivas importadas e nacionais. Qualidade, variedade e agilidade na entrega.</p>
+    </div>
+
+    <section id="sobre">
+        <h2 class="titulo-secao">Quem Somos</h2>
+        <div class="sobre-container">
+            <div class="sobre-texto">
+                <p>A <strong>RSP Imports Distribuidora de Peças</strong> é especializada no fornecimento de componentes automotivos de alta qualidade para lojistas, oficinas e autocenters.</p>
+                <p>Com um catálogo amplo e focado nas principais marcas do mercado, nosso compromisso é garantir a máxima eficiência no atendimento e a garantia de procedência de cada item distribuído.</p>
+                <p>Atuamos com inteligência logística para que o seu estoque nunca fique desfalque, unindo preço justo e excelência técnica.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos" style="background-color: #f0f2f5;">
+        <h2 class="titulo-secao">Nossa Linha de Produtos</h2>
+        <div class="pecas-grid">
+            <div class="peca-card">
+                <h3>Motor</h3>
+                <p>Pistões, bronzinas, juntas, válvulas e componentes internos de alta performance.</p>
+            </div>
+            <div class="peca-card">
+                <h3>Suspensão e Freios</h3>
+                <p>Amortecedores, pastilhas, discos, braços oscilantes e buchas de alta durabilidade.</p>
+            </div>
+            <div class="peca-card">
+                <h3>Injeção e Elétrica</h3>
+                <p>Módulos, sensores, bicos injetores, bobinas e componentes elétricos em geral.</p>
+            </div>
+            <div class="peca-card">
+                <h3>Transmissão</h3>
+                <p>Kits de embreagem, juntas homocinéticas, semieixos e filtros de câmbio automático.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2 class="titulo-secao">Dados e Canais de Contato</h2>
+        
+        <div class="contato-container">
+            <div class="dados-empresa">
+                <h3 style="margin-bottom: 20px; color: var(--cor-primaria);">Dados Institucionais</h3>
+                
+                <div class="info-grupo">
+                    <h4>Razão Social</h4>
+                    <p>RSP Imports Distribuidora de Peças Ltda.</p>
+                </div>
+                
+                <div class="info-grupo">
+                    <h4>CNPJ</h4>
+                    <p>00.000.000/0001-00 (Inserir seu CNPJ)</p>
+                </div>
+                
+                <div class="info-grupo">
+                    <h4>Endereço</h4>
+                    <p>Av. Principal das Peças, nº 1000 - Bairro Industrial<br>Cidade - Estado | CEP: 00000-000</p>
+                </div>
+
+                <div class="info-grupo">
+                    <h4>Horário de Atendimento</h4>
+                    <p>Segunda a Sexta: 08:00 às 18:00<br>Sábado: 08:00 às 12:00</p>
+                </div>
+            </div>
+
+            <div class="canais-contato">
+                <h3 style="margin-bottom: 20px; color: var(--cor-primaria);">Fale Conosco</h3>
+                
+                <div class="info-grupo">
+                    <h4>Telefone Fixo</h4>
+                    <p>(11) 4004-0000</p>
+                </div>
+                
+                <div class="info-grupo">
+                    <h4>E-mail Comercial</h4>
+                    <p>contato@rspimports.com.br</p>
+                </div>
+                
+                <div class="info-grupo">
+                    <h4>Atendimento de Vendas</h4>
+                    <p>Entre em contato direto com nossa equipe comercial via WhatsApp clicando abaixo:</p>
+                    <a href="https://wa.me/5511999999999" target="_blank" class="btn-whatsapp">
+                        Chamar no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 RSP Imports Distribuidora de Peças. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
