@@ -1,3 +1,4 @@
+HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -47,14 +48,14 @@
             align-items: center;
         }
 
-        /* Área do Logo Ajustada */
+        /* Área do Logo */
         .logo {
             display: flex;
             align-items: center;
         }
 
         .logo-img {
-            height: 65px; /* Altura ideal para não quebrar o menu */
+            height: 65px; /* Altura ideal para o menu */
             width: auto;
             display: block;
         }
@@ -74,11 +75,12 @@
             color: var(--cor-verde-logo);
         }
 
-        /* Banner Principal (Hero) com as listras do logo */
+        /* Banner Principal (Hero) com o seu Logo de Fundo */
         .hero {
-            background: linear-gradient(rgba(17, 17, 17, 0.85), rgba(17, 17, 17, 0.95)), 
-                        url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=1200') no-repeat center center/cover;
-            height: 55vh;
+            background: linear-gradient(rgba(17, 17, 17, 0.75), rgba(17, 17, 17, 0.85)), 
+                        url('https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png') no-repeat center center/contain;
+            background-color: #111111; /* Preenche com preto as sobras nas laterais */
+            height: 65vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -245,7 +247,7 @@
             color: #333;
         }
 
-        /* Botão do WhatsApp Integrado ao estilo */
+        /* Botão do WhatsApp */
         .btn-whatsapp {
             display: inline-block;
             background-color: #25d366;
@@ -304,7 +306,7 @@
     <header>
         <div class="navbar">
             <div class="logo">
-                <img src="Design sem nome (1).png" alt="RSP Imports" class="logo-img">
+                <img src="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png" alt="RSP Imports" class="logo-img">
             </div>
             <nav class="menu">
                 <a href="#home">Início</a>
