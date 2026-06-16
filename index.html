@@ -4,304 +4,351 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSP Imports | Distribuidora de Peças</title>
+    <!-- Fontes modernas importadas para o visual premium -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    
     <style>
-        /* Reset e Configurações Gerais */
+        /* Baseado no Design System Moderno do Ponto A Imports */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --cor-bg-principal: #0b0f19;    /* Azul escuro profundo (Ponto A Style) */
+            --cor-bg-card: #131a2c;         /* Card escuro contrastante */
+            --cor-verde-glow: #99cc00;     /* Seu Verde Limão icônico */
+            --cor-verde-hover: #b3ff00;
+            --cor-texto-claro: #ffffff;
+            --cor-texto-mutado: #94a3b8;
+            --borda-suave: rgba(255, 255, 255, 0.05);
         }
 
         body {
-            background-color: #fcfcfc;
-            color: #111111;
+            background-color: var(--cor-bg-principal);
+            color: var(--cor-texto-claro);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Paleta de Cores baseada no Logo: Preto, Verde Limão e Branco */
-        :root {
-            --cor-fundo-escura: #111111; /* Preto predominante */
-            --cor-fundo-clara: #ffffff;
-            --cor-cinza-suve: #f4f4f4;
-            --cor-verde-logo: #99cc00; /* Verde Limão idêntico ao logo */
-            --cor-texto-escura: #111111;
-            --cor-texto-clara: #ffffff;
-        }
-
-        /* Cabeçalho / Navbar */
+        /* Topbar / Navbar Clean */
         header {
-            background-color: var(--cor-fundo-escura);
-            color: var(--cor-texto-clara);
-            padding: 15px 5%;
+            background-color: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border-bottom: 3px solid var(--cor-verde-logo);
+            border-bottom: 1px solid var(--borda-suave);
+            transition: all 0.3s ease;
         }
 
         .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Área do Logo */
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
         .logo-img {
-            height: 65px; /* Altura ideal para o menu */
+            height: 55px;
             width: auto;
             display: block;
+            filter: drop-shadow(0 0 8px rgba(153, 204, 0, 0.2));
         }
 
         .menu a {
-            color: var(--cor-texto-clara);
+            color: var(--cor-texto-claro);
             text-decoration: none;
-            margin-left: 25px;
-            font-weight: 700;
-            text-transform: uppercase;
+            margin-left: 30px;
+            font-weight: 600;
             font-size: 14px;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .menu a:hover {
-            color: var(--cor-verde-logo);
+            color: var(--cor-verde-glow);
         }
 
-        /* Banner Principal (Hero) com o seu Logo de Fundo */
+        /* Hero Section com Grid Dinâmico e Efeito Glow */
         .hero {
-            background: linear-gradient(rgba(17, 17, 17, 0.75), rgba(17, 17, 17, 0.85)), 
-                        url('https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png') no-repeat center center/contain;
-            background-color: #111111; /* Preenche com preto as sobras nas laterais */
-            height: 65vh;
+            position: relative;
+            min-height: 80vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            background: radial-gradient(circle at 80% 20%, rgba(153, 204, 0, 0.07) 0%, transparent 50%),
+                        radial-gradient(circle at 10% 80%, rgba(19, 26, 44, 0.5) 0%, transparent 50%);
+            border-bottom: 1px solid var(--borda-suave);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-conteudo h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .hero-conteudo h1 span {
+            color: var(--cor-verde-glow);
+            text-shadow: 0 0 30px rgba(153, 204, 0, 0.3);
+        }
+
+        .hero-conteudo p {
+            font-size: 18px;
+            color: var(--cor-texto-mutado);
+            margin-bottom: 35px;
+            max-width: 540px;
+        }
+
+        .hero-imagem-wrapper {
+            display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            color: var(--cor-texto-clara);
-            padding: 0 20px;
             position: relative;
         }
 
-        /* Detalhe de listras pretas e brancas na base do Banner (Igual ao logo) */
-        .hero::after {
-            content: '';
+        /* Círculo luminoso de fundo idêntico aos efeitos Elementor observados */
+        .hero-glow-back {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 12px;
-            background: repeating-linear-gradient(
-                -45deg,
-                #111,
-                #111 10px,
-                #fff 10px,
-                #fff 20px
-            );
+            width: 300px;
+            height: 300px;
+            background: var(--cor-verde-glow);
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            z-index: 1;
         }
 
-        .hero h2 {
-            font-size: 46px;
-            font-weight: 900;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .hero-img-destaque {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            z-index: 2;
+            transform: perspective(800px) rotateY(-4deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .hero h2 span {
-            color: var(--cor-verde-logo);
-        }
-
-        .hero p {
-            font-size: 19px;
-            max-width: 650px;
-            font-weight: 300;
-        }
-
-        /* Seções Gerais */
+        /* Seções e Títulos */
         section {
-            padding: 70px 5%;
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .titulo-secao {
-            text-align: center;
-            font-size: 30px;
+            font-size: 36px;
             font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+            margin-bottom: 50px;
             position: relative;
-            color: var(--cor-fundo-escura);
-            letter-spacing: 1px;
         }
 
         .titulo-secao span {
-            color: var(--cor-verde-logo);
+            color: var(--cor-verde-glow);
         }
 
-        .titulo-secao::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--cor-verde-logo);
-            margin: 10px auto 0 auto;
+        /* Seção Sobre Nós Layout Premium */
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* Seção Sobre Nós */
-        .sobre-container {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
+        .sobre-card-info {
+            background-color: var(--cor-bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid var(--borda-suave);
+            transition: transform 0.3s ease;
         }
 
-        .sobre-texto p {
+        .sobre-card-info:hover {
+            transform: translateY(-5px);
+        }
+
+        .sobre-card-info p {
+            color: var(--cor-texto-mutado);
+            font-size: 16px;
             margin-bottom: 20px;
-            font-size: 17px;
-            color: #444;
         }
 
-        /* Seção de Peças / Linha de Produtos */
+        /* Grid de Peças / Produtos */
         .pecas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 25px;
         }
 
         .peca-card {
-            background-color: #ffffff;
-            padding: 35px 25px;
-            border-radius: 6px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-            border-top: 5px solid var(--cor-fundo-escura);
-            transition: all 0.3s ease;
+            background-color: var(--cor-bg-card);
+            padding: 35px 30px;
+            border-radius: 16px;
+            border: 1px solid var(--borda-suave);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Efeito de linha brilhante no hover */
+        .peca-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--cor-verde-glow), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .peca-card:hover::before {
+            transform: translateX(100%);
         }
 
         .peca-card:hover {
             transform: translateY(-5px);
-            border-top-color: var(--cor-verde-logo);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-color: rgba(153, 204, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(153, 204, 0, 0.05);
         }
 
         .peca-card h3 {
-            margin-bottom: 12px;
             font-size: 20px;
-            text-transform: uppercase;
-            color: var(--cor-fundo-escura);
+            margin-bottom: 12px;
+            font-weight: 700;
         }
 
         .peca-card p {
-            font-size: 15px;
-            color: #666;
+            color: var(--cor-texto-mutado);
+            font-size: 14px;
         }
 
-        /* Seção de Contato e Dados da Empresa */
+        /* Área de Contato Grid Assimétrico */
         .contato-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 40px;
         }
 
         .dados-empresa, .canais-contato {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-            border: 1px solid #eee;
+            background-color: var(--cor-bg-card);
+            padding: 45px;
+            border-radius: 20px;
+            border: 1px solid var(--borda-suave);
         }
 
         .info-grupo {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .info-grupo h4 {
-            color: var(--cor-fundo-escura);
-            margin-bottom: 6px;
-            font-size: 13px;
+            color: var(--cor-verde-glow);
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-        }
-
-        .info-grupo h4::after {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: var(--cor-verde-logo);
-            margin-left: 6px;
-            border-radius: 50%;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
         }
 
         .info-grupo p {
             font-size: 16px;
-            font-weight: 600;
-            color: #333;
+            font-weight: 500;
+            color: var(--cor-texto-claro);
         }
 
-        /* Botão do WhatsApp */
+        /* Botão WhatsApp Premium Estilo Flutuante/Neon */
         .btn-whatsapp {
-            display: inline-block;
-            background-color: #25d366;
-            color: white;
-            padding: 14px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--cor-verde-glow);
+            color: #000000;
+            padding: 16px 32px;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            margin-top: 15px;
-            transition: background-color 0.3s;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(153, 204, 0, 0.25);
         }
 
         .btn-whatsapp:hover {
-            background-color: #1ebd58;
+            background-color: var(--cor-verde-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(153, 204, 0, 0.4);
         }
 
-        /* Rodapé */
+        /* Rodapé Minimalista */
         footer {
-            background-color: var(--cor-fundo-escura);
-            color: #888;
+            background-color: #070a10;
+            padding: 40px 20px;
             text-align: center;
-            padding: 25px;
+            color: var(--cor-texto-mutado);
             font-size: 14px;
-            border-top: 4px solid var(--cor-verde-logo);
+            border-top: 1px solid var(--borda-suave);
         }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
+        /* Responsividade Extrema */
+        @media (max-width: 968px) {
+            .hero-container, .contato-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-conteudo {
+                text-align: center;
+            }
+            .hero-conteudo p {
+                margin: 0 auto 35px auto;
+            }
+            .hero-imagem-wrapper {
+                order: -1;
+            }
+            .hero-conteudo h1 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 640px) {
             .navbar {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
             .menu {
                 display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 10px;
+                gap: 15px;
             }
             .menu a {
                 margin-left: 0;
-                padding: 0 10px;
             }
-            .hero h2 {
-                font-size: 34px;
+            section {
+                padding: 60px 20px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header / Menu Superior -->
     <header>
         <div class="navbar">
             <div class="logo">
@@ -311,55 +358,74 @@
                 <a href="#home">Início</a>
                 <a href="#sobre">Quem Somos</a>
                 <a href="#produtos">Produtos</a>
-                <a href="#contato">Dados e Contato</a>
+                <a href="#contato">Contato</a>
             </nav>
         </div>
     </header>
 
+    <!-- Seção Principal Hero -->
     <div class="hero" id="home">
-        <h2>RSP <span>IMPORTS</span></h2>
-        <p>Sua distribuidora de confiança em peças automotivas importadas e nacionais. Qualidade, variedade e agilidade na entrega.</p>
+        <div class="hero-container">
+            <div class="hero-conteudo">
+                <h1>RSP <span>IMPORTS</span></h1>
+                <p>Sua distribuidora de confiança em peças automotivas importadas e nacionais. Unimos inteligência logística, qualidade e agilidade na entrega para o seu negócio.</p>
+                <a href="https://wa.me/5511953864541" target="_blank" class="btn-whatsapp">
+                    Falar com Especialista
+                </a>
+            </div>
+            <div class="hero-imagem-wrapper">
+                <div class="hero-glow-back"></div>
+                <!-- Utilizando sua imagem oficial em perspectiva premium -->
+                <img src="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png" alt="Distribuição RSP" class="hero-img-destaque">
+            </div>
+        </div>
     </div>
 
+    <!-- Seção Quem Somos -->
     <section id="sobre">
         <h2 class="titulo-secao">Quem <span>Somos</span></h2>
-        <div class="sobre-container">
-            <div class="sobre-texto">
+        <div class="sobre-grid">
+            <div class="sobre-card-info">
                 <p>A <strong>RSP Imports Distribuidora de Peças</strong> é especializada no fornecimento de componentes automotivos de alta qualidade para lojistas, oficinas e autocenters.</p>
                 <p>Com um catálogo amplo e focado nas principais marcas do mercado, nosso compromisso é garantir a máxima eficiência no atendimento e a garantia de procedência de cada item distribuído.</p>
-                <p>Atuamos com inteligência logística para que o seu estoque nunca fique desfalque, unindo preço justo e excelência técnica.</p>
+            </div>
+            <div class="sobre-card-info" style="border-left: 3px solid var(--cor-verde-glow);">
+                <h3 style="margin-bottom: 15px; font-size: 22px;">Inteligência Logística</h3>
+                <p>Atuamos de forma estratégica para que o estoque da sua empresa nunca fique desfalque. Nosso foco é unir preço justo, procedência impecável e excelência técnica no envio.</p>
             </div>
         </div>
     </section>
 
-    <section id="produtos" style="background-color: var(--cor-cinza-suve);">
+    <!-- Linha de Produtos (Cards Premium Inteligentes) -->
+    <section id="produtos">
         <h2 class="titulo-secao">Linha de <span>Produtos</span></h2>
         <div class="pecas-grid">
             <div class="peca-card">
                 <h3>Motor</h3>
-                <p>Pistões, bronzinas, juntas, válvulas e componentes internos de alta performance.</p>
+                <p>Pistões, bronzinas, juntas, válvulas e componentes internos de alta performance mecânica.</p>
             </div>
             <div class="peca-card">
-                <h3>Suspensão e Freios</h3>
-                <p>Amortecedores, pastilhas, discos, braços oscilantes e buchas de alta durabilidade.</p>
+                <h3>Suspensão & Freios</h3>
+                <p>Amortecedores, pastilhas, discos, braços oscilantes e buchas de alta durabilidade para rodagem.</p>
             </div>
             <div class="peca-card">
-                <h3>Injeção e Elétrica</h3>
-                <p>Módulos, sensores, bicos injetores, bobinas e componentes elétricos em geral.</p>
+                <h3>Injeção & Elétrica</h3>
+                <p>Módulos, sensores essenciais, bicos injetores, bobinas e componentes elétricos em geral.</p>
             </div>
             <div class="peca-card">
                 <h3>Transmissão</h3>
-                <p>Kits de embreagem, juntas homocinéticas, semieixos e filtros de câmbio automático.</p>
+                <p>Kits completos de embreagem, juntas homocinéticas, semieixos e filtros específicos para câmbio automático.</p>
             </div>
         </div>
     </section>
 
+    <!-- Seção Contato / Dados Unificados -->
     <section id="contato">
         <h2 class="titulo-secao">Dados e <span>Contato</span></h2>
         
         <div class="contato-container">
             <div class="dados-empresa">
-                <h3 style="margin-bottom: 25px; color: var(--cor-fundo-escura); text-transform: uppercase; font-size: 18px;">Dados Institucionais</h3>
+                <h3 style="margin-bottom: 30px; font-size: 22px; font-weight: 700;">Dados Institucionais</h3>
                 
                 <div class="info-grupo">
                     <h4>Razão Social</h4>
@@ -372,40 +438,41 @@
                 </div>
                 
                 <div class="info-grupo">
-                    <h4>Endereço</h4>
+                    <h4>Endereço Fiscal e Operacional</h4>
                     <p>R. Paulino Guimarães, 93 - Luz, São Paulo - SP, 01109-020</p>
                 </div>
 
                 <div class="info-grupo">
-                    <h4>Horário de Atendimento</h4>
+                    <h4>Horário de Funcionamento</h4>
                     <p>Segunda a Sexta: 08:00 às 18:00<br>Sábado: 08:00 às 12:00</p>
                 </div>
             </div>
 
-            <div class="canais-contato">
-                <h3 style="margin-bottom: 25px; color: var(--cor-fundo-escura); text-transform: uppercase; font-size: 18px;">Fale Conosco</h3>
+            <div class="canais-contato" style="background: linear-gradient(135deg, #131a2c 0%, #0d1322 100%);">
+                <h3 style="margin-bottom: 30px; font-size: 22px; font-weight: 700;">Canais de Atendimento</h3>
                 
                 <div class="info-grupo">
-                    <h4>Telefone / WhatsApp</h4>
+                    <h4>Telefone Direct</h4>
                     <p>(11) 95386-4541</p>
                 </div>
                 
                 <div class="info-grupo">
-                    <h4>E-mail Comercial</h4>
+                    <h4>E-mail Corporativo</h4>
                     <p>rspimportspecas@gmail.com</p>
                 </div>
                 
                 <div class="info-grupo">
-                    <h4>Atendimento de Vendas</h4>
-                    <p style="font-weight: normal; color: #555; margin-bottom: 10px;">Entre em contato direto com nossa equipe comercial via WhatsApp clicando abaixo:</p>
+                    <h4>Vendas e Cotações Rápidas</h4>
+                    <p style="color: var(--cor-texto-mutado); font-weight: normal; font-size: 14px; margin-bottom: 15px;">Fale diretamente com nossa mesa de atendimento clicando no botão abaixo:</p>
                     <a href="https://wa.me/5511953864541" target="_blank" class="btn-whatsapp">
-                        Chamar no WhatsApp
+                        Abrir Chat no WhatsApp
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Rodapé Limpo -->
     <footer>
         <p>&copy; 2026 RSP Imports Distribuidora de Peças. Todos os direitos reservados.</p>
     </footer>
