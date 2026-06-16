@@ -486,25 +486,147 @@
         </div>
     </section>
 
-    <!-- Linha de Produtos -->
+    <!-- Linha de Produtos (Cards Premium com Imagens) -->
     <section id="produtos">
         <h2 class="titulo-secao">Linha de <span>Produtos</span></h2>
+        
+        <style>
+            .pecas-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+                gap: 25px;
+            }
+
+            .peca-card {
+                background-color: var(--cor-bg-card);
+                border-radius: 16px;
+                border: 1px solid var(--borda-suave);
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            /* Container da Imagem */
+            .peca-img-wrapper {
+                width: 100%;
+                height: 160px;
+                overflow: hidden;
+                position: relative;
+                border-bottom: 1px solid var(--borda-suave);
+            }
+
+            .peca-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            /* Conteúdo do Card */
+            .peca-conteudo {
+                padding: 25px;
+            }
+
+            .peca-card h3 {
+                font-size: 20px;
+                margin-bottom: 12px;
+                font-weight: 700;
+                color: var(--cor-texto-claro);
+            }
+
+            .peca-card p {
+                color: var(--cor-texto-mutado);
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            /* Efeitos de Interatividade (Hover) */
+            .peca-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background: linear-gradient(90deg, transparent, var(--cor-verde-glow), transparent);
+                transform: translateX(-100%);
+                transition: transform 0.5s ease;
+                z-index: 3;
+            }
+
+            .peca-card:hover::before {
+                transform: translateX(100%);
+            }
+
+            .peca-card:hover {
+                transform: translateY(-5px);
+                border-color: rgba(153, 204, 0, 0.3);
+                box-shadow: 0 12px 30px rgba(153, 204, 0, 0.08);
+            }
+
+            /* Efeito Zoom na Imagem ao passar o mouse */
+            .peca-card:hover .peca-img {
+                transform: scale(1.08);
+            }
+
+            /* Filtro escuro sutil sobre a imagem para combinar com o tema dark */
+            .peca-img-wrapper::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, transparent 40%, rgba(19, 26, 44, 0.4));
+                pointer-events: none;
+            }
+        </style>
+
         <div class="pecas-grid">
+            <!-- Card 1: Motor -->
             <div class="peca-card">
-                <h3>Motor</h3>
-                <p>Pistões, bronzinas, juntas, válvulas e componentes internos de alta performance mecânica.</p>
+                <div class="peca-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?q=80&w=600&auto=format&fit=crop" alt="Componentes de Motor" class="peca-img">
+                </div>
+                <div class="peca-conteudo">
+                    <h3>Motor</h3>
+                    <p>Pistões, bronzinas, juntas, válvulas e componentes internos de alta performance mecânica.</p>
+                </div>
             </div>
+
+            <!-- Card 2: Suspensão & Freios -->
             <div class="peca-card">
-                <h3>Suspensão & Freios</h3>
-                <p>Amortecedores, pastilhas, discos, braços oscilantes e buchas de alta durabilidade para rodagem.</p>
+                <div class="peca-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=600&auto=format&fit=crop" alt="Freios e Suspensão" class="peca-img">
+                </div>
+                <div class="peca-conteudo">
+                    <h3>Suspensão & Freios</h3>
+                    <p>Amortecedores, pastilhas, discos, braços oscilantes e buchas de alta durabilidade para rodagem.</p>
+                </div>
             </div>
+
+            <!-- Card 3: Injeção & Elétrica -->
             <div class="peca-card">
-                <h3>Injeção & Elétrica</h3>
-                <p>Módulos, sensores essenciais, bicos injetores, bobinas e componentes elétricos em geral.</p>
+                <div class="peca-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1607603731681-3fd43385469a?q=80&w=600&auto=format&fit=crop" alt="Injeção Eletrônica" class="peca-img">
+                </div>
+                <div class="peca-conteudo">
+                    <h3>Injeção & Elétrica</h3>
+                    <p>Módulos, sensores essenciais, bicos injetores, bobinas e componentes elétricos em geral.</p>
+                </div>
             </div>
+
+            <!-- Card 4: Transmissão -->
             <div class="peca-card">
-                <h3>Transmissão</h3>
-                <p>Kits completos de embreagem, juntas homocinéticas, semieixos e filtros específicos para câmbio automático.</p>
+                <div class="peca-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?q=80&w=600&auto=format&fit=crop" alt="Sistema de Transmissão" class="peca-img">
+                </div>
+                <div class="peca-conteudo">
+                    <h3>Transmissão</h3>
+                    <p>Kits completos de embreagem, juntas homocinéticas, semieixos e filtros específicos para câmbio automático.</p>
+                </div>
             </div>
         </div>
     </section>
