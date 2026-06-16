@@ -247,7 +247,7 @@
         /* Área de Contato Grid Assimétrico */
         .contato-container {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1fr 1.1fr;
             gap: 40px;
         }
 
@@ -274,6 +274,93 @@
             font-size: 16px;
             font-weight: 500;
             color: var(--cor-texto-claro);
+        }
+
+        /* Estilização do Formulário de Contato (image_dd1d69.png) */
+        .form-contato {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 10px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        /* Estilo de linha flutuante minimalista */
+        .form-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px 0;
+            color: #ffffff;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            border-bottom-color: var(--cor-verde-glow);
+        }
+        
+        .form-textarea {
+            height: 90px;
+            resize: none;
+        }
+        
+        /* Checkbox de Privacidade */
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--cor-texto-mutado);
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        
+        .form-checkbox input {
+            accent-color: var(--cor-verde-glow);
+            width: 16px;
+            height: 16px;
+        }
+        
+        .form-checkbox a {
+            color: var(--cor-verde-glow);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Botão de Envio adaptado para o estilo da imagem */
+        .btn-enviar-form {
+            width: 100%;
+            background-color: #4f6bd9; /* Azul clássico do botão da imagem, ou troque por var(--cor-verde-glow) se preferir combinar */
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 107, 217, 0.2);
+            margin-top: 5px;
+        }
+        
+        .btn-enviar-form:hover {
+            background-color: #3b55b8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 107, 217, 0.3);
         }
 
         /* Botão WhatsApp Premium Estilo Flutuante/Neon */
@@ -309,7 +396,7 @@
             border-top: 1px solid var(--borda-suave);
         }
 
-        /* Responsividade Extrema */
+        /* Responsividade */
         @media (max-width: 968px) {
             .hero-container, .contato-container {
                 grid-template-columns: 1fr;
@@ -343,6 +430,10 @@
             section {
                 padding: 60px 20px;
             }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -370,12 +461,11 @@
                 <h1>RSP <span>IMPORTS</span></h1>
                 <p>Sua distribuidora de confiança em peças automotivas importadas e nacionais. Unimos inteligência logística, qualidade e agilidade na entrega para o seu negócio.</p>
                 <a href="https://wa.me/5511953864541" target="_blank" class="btn-whatsapp">
-                    Falar com Especialista
+                    Falar via WhatsApp
                 </a>
             </div>
             <div class="hero-imagem-wrapper">
                 <div class="hero-glow-back"></div>
-                <!-- Utilizando sua imagem oficial em perspectiva premium -->
                 <img src="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png" alt="Distribuição RSP" class="hero-img-destaque">
             </div>
         </div>
@@ -396,7 +486,7 @@
         </div>
     </section>
 
-    <!-- Linha de Produtos (Cards Premium Inteligentes) -->
+    <!-- Linha de Produtos -->
     <section id="produtos">
         <h2 class="titulo-secao">Linha de <span>Produtos</span></h2>
         <div class="pecas-grid">
@@ -419,11 +509,12 @@
         </div>
     </section>
 
-    <!-- Seção Contato / Dados Unificados -->
+    <!-- Seção Contato / Dados Unificados + Novo Formulário -->
     <section id="contato">
         <h2 class="titulo-secao">Dados e <span>Contato</span></h2>
         
         <div class="contato-container">
+            <!-- Dados Institucionais (Esquerda) -->
             <div class="dados-empresa">
                 <h3 style="margin-bottom: 30px; font-size: 22px; font-weight: 700;">Dados Institucionais</h3>
                 
@@ -446,28 +537,43 @@
                     <h4>Horário de Funcionamento</h4>
                     <p>Segunda a Sexta: 08:00 às 18:00<br>Sábado: 08:00 às 12:00</p>
                 </div>
-            </div>
 
-            <div class="canais-contato" style="background: linear-gradient(135deg, #131a2c 0%, #0d1322 100%);">
-                <h3 style="margin-bottom: 30px; font-size: 22px; font-weight: 700;">Canais de Atendimento</h3>
-                
-                <div class="info-grupo">
-                    <h4>Telefone Direct</h4>
-                    <p>(11) 95386-4541</p>
-                </div>
-                
-                <div class="info-grupo">
+                <div class="info-grupo" style="margin-bottom: 0;">
                     <h4>E-mail Corporativo</h4>
                     <p>rspimportspecas@gmail.com</p>
                 </div>
+            </div>
+
+            <!-- Formulário Estilo Image_dd1d69 (Direita) -->
+            <div class="canais-contato" style="background: linear-gradient(135deg, #131a2c 0%, #0d1322 100%);">
+                <h3 style="margin-bottom: 25px; font-size: 22px; font-weight: 700;">Envie uma Mensagem</h3>
                 
-                <div class="info-grupo">
-                    <h4>Vendas e Cotações Rápidas</h4>
-                    <p style="color: var(--cor-texto-mutado); font-weight: normal; font-size: 14px; margin-bottom: 15px;">Fale diretamente com nossa mesa de atendimento clicando no botão abaixo:</p>
-                    <a href="https://wa.me/5511953864541" target="_blank" class="btn-whatsapp">
-                        Abrir Chat no WhatsApp
-                    </a>
-                </div>
+                <!-- IMPORTANTE: Substitua o 'SEU_ID_FORMSPREE' após criar a conta no formspree.io -->
+                <form action="https://formspree.io/f/SEU_ID_FORMSPREE" method="POST" class="form-contato">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="nome" class="form-input" placeholder="Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="telefone" class="form-input" placeholder="Telefone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-input" placeholder="E-mail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="mensagem" class="form-input form-textarea" placeholder="Mensagem" required></textarea>
+                    </div>
+                    
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="privacidade" required>
+                        <span>Li e aceito os termos de <a href="#privacy">política de privacidade</a>.</span>
+                    </label>
+                    
+                    <button type="submit" class="btn-enviar-form">Enviar</button>
+                </form>
             </div>
         </div>
     </section>
