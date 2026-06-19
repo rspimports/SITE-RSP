@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSP Imports | Distribuidora de Peças</title>
     
-    <!-- TAGS PARA A LOGO APARECER NO GOOGLE (FAVICON) COMO NA IMAGEM image_1fb0dc.png -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png">
     <link rel="apple-touch-icon" href="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png">
     
-    <!-- Fontes modernas importadas para o visual premium -->
+    <meta name="google-site-verification" content="googleacc4e48200c44637" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -62,7 +62,6 @@
             align-items: center;
         }
 
-        /* Ajuste fino na Logo do Menu Principal */
         .logo {
             display: flex;
             align-items: center;
@@ -72,7 +71,7 @@
             height: 55px;
             width: auto;
             display: block;
-            border-radius: 8px; /* Cantos levemente arredondados para suavizar a logo quadrada */
+            border-radius: 8px;
             filter: drop-shadow(0 0 8px rgba(153, 204, 0, 0.2));
             transition: transform 0.3s ease;
         }
@@ -432,6 +431,7 @@
             transform: translateY(-2px);
         }
 
+        /* Estilização Nova do Rodapé com Selos */
         footer {
             background-color: #070a10;
             padding: 40px 20px;
@@ -441,6 +441,35 @@
             border-top: 1px solid var(--borda-suave);
         }
 
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .selos-verificacao {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 5px;
+            filter: grayscale(100%) opacity(50%);
+            transition: all 0.3s ease;
+        }
+
+        .selos-verificacao:hover {
+            filter: grayscale(0%) opacity(100%);
+        }
+
+        .selo-item {
+            height: 35px;
+            width: auto;
+        }
+
+        /* Responsividade */
         @media (max-width: 968px) {
             .hero-container, .contato-container {
                 grid-template-columns: 1fr;
@@ -483,11 +512,9 @@
 </head>
 <body>
 
-    <!-- Header / Menu Superior -->
     <header>
         <div class="navbar">
             <div class="logo">
-                <!-- SUA LOGO ADICIONADA E INTEGRADA AO CABEÇALHO -->
                 <img src="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png" alt="RSP Imports Logo" class="logo-img">
             </div>
             <nav class="menu">
@@ -499,7 +526,6 @@
         </div>
     </header>
 
-    <!-- Seção Principal Hero -->
     <div class="hero" id="home">
         <div class="hero-container">
             <div class="hero-conteudo">
@@ -511,13 +537,11 @@
             </div>
             <div class="hero-imagem-wrapper">
                 <div class="hero-glow-back"></div>
-                <!-- Logo Principal em perspectiva 3D adaptada -->
                 <img src="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png" alt="Distribuição RSP" class="hero-img-destaque">
             </div>
         </div>
     </div>
 
-    <!-- Seção Quem Somos -->
     <section id="sobre">
         <h2 class="titulo-secao">Quem <span>Somos</span></h2>
         <div class="sobre-grid">
@@ -532,7 +556,6 @@
         </div>
     </section>
 
-    <!-- Linha de Produtos (Infalíveis SVG) -->
     <section id="produtos">
         <h2 class="titulo-secao">Linha de <span>Produtos</span></h2>
         <div class="pecas-grid">
@@ -593,7 +616,6 @@
         </div>
     </section>
 
-    <!-- Seção Contato / Dados Unificados + Formulário -->
     <section id="contato">
         <h2 class="titulo-secao">Dados e <span>Contato</span></h2>
         
@@ -627,7 +649,6 @@
                 </div>
             </div>
 
-            <!-- Formulário Estilo Image_dd1d69 -->
             <div class="canais-contato" style="background: linear-gradient(135deg, #131a2c 0%, #0d1322 100%);">
                 <h3 style="margin-bottom: 25px; font-size: 22px; font-weight: 700;">Envie uma Mensagem</h3>
                 
@@ -660,9 +681,16 @@
         </div>
     </section>
 
-    <!-- Rodapé -->
     <footer>
-        <p>&copy; 2026 RSP Imports Distribuidora de Peças. Todos os direitos reservados.</p>
+        <div class="footer-container">
+            <p>&copy; 2026 RSP Imports Distribuidora de Peças. Todos os direitos reservados.</p>
+            
+            <div class="selos-verificacao">
+                <img src="https://i.ibb.co/vYg6QZ9/ssl-secure.png" alt="Ambiente Seguro SSL" class="selo-item">
+                
+                <img src="https://i.ibb.co/9vM7Ym3/google-safe.png" alt="Google Safe Browsing" class="selo-item">
+            </div>
+        </div>
     </footer>
 
 </body>
