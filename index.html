@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSP Imports | Distribuidora de Peças</title>
     
+    <!-- TAGS PARA A LOGO APARECER NO GOOGLE (FAVICON) -->
     <link rel="icon" type="image/png" href="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png">
     <link rel="apple-touch-icon" href="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png">
     
+    <!-- TAG DE VERIFICAÇÃO DO GOOGLE SEARCH CONSOLE -->
     <meta name="google-site-verification" content="googleacc4e48200c44637" />
     
+    <!-- Fontes modernas importadas para o visual premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -431,7 +434,7 @@
             transform: translateY(-2px);
         }
 
-        /* Estilização Nova do Rodapé com Selos */
+        /* Rodapé Premium Otimizado com Selos em Código SVG */
         footer {
             background-color: #070a10;
             padding: 40px 20px;
@@ -454,19 +457,37 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
             margin-top: 5px;
-            filter: grayscale(100%) opacity(50%);
+        }
+
+        .selo-svg-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #e2e8f0;
+            user-select: none;
+            filter: opacity(60%);
             transition: all 0.3s ease;
         }
 
-        .selos-verificacao:hover {
-            filter: grayscale(0%) opacity(100%);
+        .selo-svg-badge:hover {
+            filter: opacity(100%);
+            background: rgba(255, 255, 255, 0.05);
         }
-
-        .selo-item {
-            height: 35px;
-            width: auto;
+        
+        .selo-svg-icon {
+            width: 18px;
+            height: 18px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         /* Responsividade */
@@ -512,6 +533,7 @@
 </head>
 <body>
 
+    <!-- Header / Menu Superior -->
     <header>
         <div class="navbar">
             <div class="logo">
@@ -526,6 +548,7 @@
         </div>
     </header>
 
+    <!-- Seção Principal Hero -->
     <div class="hero" id="home">
         <div class="hero-container">
             <div class="hero-conteudo">
@@ -542,6 +565,7 @@
         </div>
     </div>
 
+    <!-- Seção Quem Somos -->
     <section id="sobre">
         <h2 class="titulo-secao">Quem <span>Somos</span></h2>
         <div class="sobre-grid">
@@ -556,6 +580,7 @@
         </div>
     </section>
 
+    <!-- Linha de Produtos (Infalíveis SVG) -->
     <section id="produtos">
         <h2 class="titulo-secao">Linha de <span>Produtos</span></h2>
         <div class="pecas-grid">
@@ -616,6 +641,7 @@
         </div>
     </section>
 
+    <!-- Seção Contato / Dados Unificados + Formulário -->
     <section id="contato">
         <h2 class="titulo-secao">Dados e <span>Contato</span></h2>
         
@@ -649,9 +675,11 @@
                 </div>
             </div>
 
+            <!-- Formulário Estilo Image_dd1d69 -->
             <div class="canais-contato" style="background: linear-gradient(135deg, #131a2c 0%, #0d1322 100%);">
                 <h3 style="margin-bottom: 25px; font-size: 22px; font-weight: 700;">Envie uma Mensagem</h3>
                 
+                <!-- IMPORTANTE: Substitua o 'SEU_ID_FORMSPREE' após criar a conta no formspree.io -->
                 <form action="https://formspree.io/f/SEU_ID_FORMSPREE" method="POST" class="form-contato">
                     <div class="form-row">
                         <div class="form-group">
@@ -681,14 +709,28 @@
         </div>
     </section>
 
+    <!-- Rodapé Premium Otimizado com Selos de Auditoria em SVG (Infalíveis) -->
     <footer>
         <div class="footer-container">
             <p>&copy; 2026 RSP Imports Distribuidora de Peças. Todos os direitos reservados.</p>
             
             <div class="selos-verificacao">
-                <img src="https://i.ibb.co/vYg6QZ9/ssl-secure.png" alt="Ambiente Seguro SSL" class="selo-item">
+                <!-- Selo 1: SSL SECURE EM SVG -->
+                <div class="selo-svg-badge">
+                    <svg viewBox="0 0 24 24" class="selo-svg-icon" style="stroke: #00e676;">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" fill="none" stroke-width="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" fill="none" stroke-width="2"/>
+                    </svg>
+                    <span>SSL SECURE</span>
+                </div>
                 
-                <img src="https://i.ibb.co/9vM7Ym3/google-safe.png" alt="Google Safe Browsing" class="selo-item">
+                <!-- Selo 2: GOOGLE SAFE EM SVG -->
+                <div class="selo-svg-badge">
+                    <svg viewBox="0 0 24 24" class="selo-svg-icon" style="stroke: var(--cor-verde-glow);">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke-width="2"/>
+                    </svg>
+                    <span>GOOGLE SAFE</span>
+                </div>
             </div>
         </div>
     </footer>
