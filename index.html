@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSP Imports | Distribuidora de Peças</title>
+    
+    <!-- TAGS PARA A LOGO APARECER NO GOOGLE (FAVICON) COMO NA IMAGEM image_1fb0dc.png -->
+    <link rel="icon" type="image/png" href="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png">
+    
     <!-- Fontes modernas importadas para o visual premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,11 +62,23 @@
             align-items: center;
         }
 
+        /* Ajuste fino na Logo do Menu Principal */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
         .logo-img {
             height: 55px;
             width: auto;
             display: block;
+            border-radius: 8px; /* Cantos levemente arredondados para suavizar a logo quadrada */
             filter: drop-shadow(0 0 8px rgba(153, 204, 0, 0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.03);
         }
 
         .menu a {
@@ -127,7 +144,6 @@
             position: relative;
         }
 
-        /* Círculo luminoso de fundo idêntico aos efeitos Elementor observados */
         .hero-glow-back {
             position: absolute;
             width: 300px;
@@ -183,10 +199,6 @@
             transition: transform 0.3s ease;
         }
 
-        .sobre-card-info:hover {
-            transform: translateY(-5px);
-        }
-
         .sobre-card-info p {
             color: var(--cor-texto-mutado);
             font-size: 16px;
@@ -202,15 +214,55 @@
 
         .peca-card {
             background-color: var(--cor-bg-card);
-            padding: 35px 30px;
             border-radius: 16px;
             border: 1px solid var(--borda-suave);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Efeito de linha brilhante no hover */
+        .peca-img-wrapper {
+            width: 100%;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--borda-suave);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.01), rgba(0,0,0,0.2));
+        }
+
+        .peca-icon {
+            width: 64px;
+            height: 64px;
+            fill: none;
+            stroke: var(--cor-texto-mutado);
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: all 0.4s ease;
+        }
+
+        .peca-conteudo {
+            padding: 25px;
+        }
+
+        .peca-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 700;
+            color: var(--cor-texto-claro);
+            transition: color 0.3s ease;
+        }
+
+        .peca-card p {
+            color: var(--cor-texto-mutado);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
         .peca-card::before {
             content: '';
             position: absolute;
@@ -221,6 +273,7 @@
             background: linear-gradient(90deg, transparent, var(--cor-verde-glow), transparent);
             transform: translateX(-100%);
             transition: transform 0.5s ease;
+            z-index: 3;
         }
 
         .peca-card:hover::before {
@@ -230,18 +283,17 @@
         .peca-card:hover {
             transform: translateY(-5px);
             border-color: rgba(153, 204, 0, 0.3);
-            box-shadow: 0 10px 30px rgba(153, 204, 0, 0.05);
+            box-shadow: 0 12px 30px rgba(153, 204, 0, 0.08);
         }
 
-        .peca-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            font-weight: 700;
+        .peca-card:hover .peca-icon {
+            stroke: var(--cor-verde-glow);
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 12px rgba(153, 204, 0, 0.6));
         }
 
-        .peca-card p {
-            color: var(--cor-texto-mutado);
-            font-size: 14px;
+        .peca-card:hover h3 {
+            color: var(--cor-verde-glow);
         }
 
         /* Área de Contato Grid Assimétrico */
@@ -294,7 +346,6 @@
             position: relative;
         }
         
-        /* Estilo de linha flutuante minimalista */
         .form-input {
             width: 100%;
             background: transparent;
@@ -316,7 +367,6 @@
             resize: none;
         }
         
-        /* Checkbox de Privacidade */
         .form-checkbox {
             display: flex;
             align-items: center;
@@ -339,10 +389,9 @@
             font-weight: 600;
         }
         
-        /* Botão de Envio adaptado para o estilo da imagem */
         .btn-enviar-form {
             width: 100%;
-            background-color: #4f6bd9; /* Azul clássico do botão da imagem, ou troque por var(--cor-verde-glow) se preferir combinar */
+            background-color: #4f6bd9;
             color: #ffffff;
             border: none;
             padding: 16px;
@@ -360,10 +409,8 @@
         .btn-enviar-form:hover {
             background-color: #3b55b8;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79, 107, 217, 0.3);
         }
 
-        /* Botão WhatsApp Premium Estilo Flutuante/Neon */
         .btn-whatsapp {
             display: flex;
             align-items: center;
@@ -383,10 +430,8 @@
         .btn-whatsapp:hover {
             background-color: var(--cor-verde-hover);
             transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(153, 204, 0, 0.4);
         }
 
-        /* Rodapé Minimalista */
         footer {
             background-color: #070a10;
             padding: 40px 20px;
@@ -396,7 +441,6 @@
             border-top: 1px solid var(--borda-suave);
         }
 
-        /* Responsividade */
         @media (max-width: 968px) {
             .hero-container, .contato-container {
                 grid-template-columns: 1fr;
@@ -443,7 +487,8 @@
     <header>
         <div class="navbar">
             <div class="logo">
-                <img src="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png" alt="RSP Imports" class="logo-img">
+                <!-- SUA LOGO ADICIONADA E INTEGRADA AO CABEÇALHO -->
+                <img src="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png" alt="RSP Imports Logo" class="logo-img">
             </div>
             <nav class="menu">
                 <a href="#home">Início</a>
@@ -466,6 +511,7 @@
             </div>
             <div class="hero-imagem-wrapper">
                 <div class="hero-glow-back"></div>
+                <!-- Logo Principal em perspectiva 3D adaptada -->
                 <img src="https://i.ibb.co/mFJnQbF2/Design-sem-nome-1.png" alt="Distribuição RSP" class="hero-img-destaque">
             </div>
         </div>
@@ -486,113 +532,12 @@
         </div>
     </section>
 
-<!-- Linha de Produtos (Cards Premium com Ícones SVG Estilizados) -->
+    <!-- Linha de Produtos (Infalíveis SVG) -->
     <section id="produtos">
         <h2 class="titulo-secao">Linha de <span>Produtos</span></h2>
-        
-        <style>
-            .pecas-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                gap: 25px;
-            }
-
-            .peca-card {
-                background-color: var(--cor-bg-card);
-                border-radius: 16px;
-                border: 1px solid var(--borda-suave);
-                position: relative;
-                overflow: hidden;
-                display: flex;
-                flex-direction: column;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            /* Container do Ícone Avançado */
-            .peca-img-wrapper {
-                width: 100%;
-                height: 160px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                border-bottom: 1px solid var(--borda-suave);
-                background: linear-gradient(to bottom, rgba(255,255,255,0.01), rgba(0,0,0,0.2));
-            }
-
-            /* Ícones SVG */
-            .peca-icon {
-                width: 64px;
-                height: 64px;
-                fill: none;
-                stroke: var(--cor-texto-mutado);
-                stroke-width: 1.5;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-                transition: all 0.4s ease;
-                filter: drop-shadow(0 0 0px transparent);
-            }
-
-            /* Conteúdo do Card */
-            .peca-conteudo {
-                padding: 25px;
-            }
-
-            .peca-card h3 {
-                font-size: 20px;
-                margin-bottom: 12px;
-                font-weight: 700;
-                color: var(--cor-texto-claro);
-                transition: color 0.3s ease;
-            }
-
-            .peca-card p {
-                color: var(--cor-texto-mutado);
-                font-size: 14px;
-                line-height: 1.5;
-            }
-
-            /* Efeitos de Interatividade (Hover) */
-            .peca-card::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 3px;
-                background: linear-gradient(90deg, transparent, var(--cor-verde-glow), transparent);
-                transform: translateX(-100%);
-                transition: transform 0.5s ease;
-                z-index: 3;
-            }
-
-            .peca-card:hover::before {
-                transform: translateX(100%);
-            }
-
-            .peca-card:hover {
-                transform: translateY(-5px);
-                border-color: rgba(153, 204, 0, 0.3);
-                box-shadow: 0 12px 30px rgba(153, 204, 0, 0.08);
-            }
-
-            /* Ao passar o mouse: o ícone acende em Verde Limão e ganha brilho (Glow) */
-            .peca-card:hover .peca-icon {
-                stroke: var(--cor-verde-glow);
-                transform: scale(1.1);
-                filter: drop-shadow(0 0 12px rgba(153, 204, 0, 0.6));
-            }
-
-            .peca-card:hover h3 {
-                color: var(--cor-verde-glow);
-            }
-        </style>
-
         <div class="pecas-grid">
-            <!-- Card 1: Motor -->
             <div class="peca-card">
                 <div class="peca-img-wrapper">
-                    <!-- Ícone de Pistão / Bloco do Motor Mecânico -->
                     <svg class="peca-icon" viewBox="0 0 24 24">
                         <path d="M19 10V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v5" />
                         <path d="M21 13H3v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4z" />
@@ -605,10 +550,8 @@
                 </div>
             </div>
 
-            <!-- Card 2: Suspensão & Freios -->
             <div class="peca-card">
                 <div class="peca-img-wrapper">
-                    <!-- Ícone de Amortecedor / Disco de Freio -->
                     <svg class="peca-icon" viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="9" />
                         <circle cx="12" cy="12" r="3" />
@@ -621,10 +564,8 @@
                 </div>
             </div>
 
-            <!-- Card 3: Injeção & Elétrica -->
             <div class="peca-card">
                 <div class="peca-img-wrapper">
-                    <!-- Ícone de Circuito / Módulo Eletrônico (ECU) -->
                     <svg class="peca-icon" viewBox="0 0 24 24">
                         <rect x="3" y="3" width="18" height="18" rx="2" />
                         <path d="M7 3v3M12 3v3M17 3v3M7 18v3M12 18v3M17 18v3M3 7h3M3 12h3M3 17h3M18 7h3M18 12h3M18 17h3" />
@@ -636,10 +577,8 @@
                 </div>
             </div>
 
-            <!-- Card 4: Transmissão -->
             <div class="peca-card">
                 <div class="peca-img-wrapper">
-                    <!-- Ícone de Engrenagens / Sistema de Câmbio -->
                     <svg class="peca-icon" viewBox="0 0 24 24">
                         <circle cx="8.5" cy="8.5" r="3.5" />
                         <circle cx="15.5" cy="15.5" r="3.5" />
@@ -654,12 +593,11 @@
         </div>
     </section>
 
-    <!-- Seção Contato / Dados Unificados + Novo Formulário -->
+    <!-- Seção Contato / Dados Unificados + Formulário -->
     <section id="contato">
         <h2 class="titulo-secao">Dados e <span>Contato</span></h2>
         
         <div class="contato-container">
-            <!-- Dados Institucionais (Esquerda) -->
             <div class="dados-empresa">
                 <h3 style="margin-bottom: 30px; font-size: 22px; font-weight: 700;">Dados Institucionais</h3>
                 
@@ -689,12 +627,11 @@
                 </div>
             </div>
 
-            <!-- Formulário Estilo Image_dd1d69 (Direita) -->
+            <!-- Formulário Estilo Image_dd1d69 -->
             <div class="canais-contato" style="background: linear-gradient(135deg, #131a2c 0%, #0d1322 100%);">
                 <h3 style="margin-bottom: 25px; font-size: 22px; font-weight: 700;">Envie uma Mensagem</h3>
                 
-                <!-- IMPORTANTE: Substitua o 'SEU_ID_FORMSPREE' após criar a conta no formspree.io -->
-                <form action="https://formspree.io/f/mbdebpzq" method="POST" class="form-contato">
+                <form action="https://formspree.io/f/SEU_ID_FORMSPREE" method="POST" class="form-contato">
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" name="nome" class="form-input" placeholder="Nome" required>
@@ -723,7 +660,7 @@
         </div>
     </section>
 
-    <!-- Rodapé Limpo -->
+    <!-- Rodapé -->
     <footer>
         <p>&copy; 2026 RSP Imports Distribuidora de Peças. Todos os direitos reservados.</p>
     </footer>
